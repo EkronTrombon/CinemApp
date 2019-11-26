@@ -1,0 +1,40 @@
+<ion-row>
+    <ion-col size="12">
+        <ion-segment (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="cast" checked>
+                <ion-label>Cast</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="crew">
+                <ion-label>Crew</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <ion-slides [options]="slideOptsReparto" *ngIf="selectedSegment === 'cast'">
+            <ion-slide *ngFor="let cast of credits.cast">
+                <ion-card class="card-actor" (click)="castInfo(cast.id)">
+                    <img *ngIf="!cast.profile_path" src="/assets/img/no-avatar.jpg">
+                    <img *ngIf="cast.profile_path" [src]="cast.profile_path | imagen">
+                    <ion-card-title class="actor-name ion-text-center">
+                        <ion-label>{{ cast.name }}</ion-label>
+                    </ion-card-title>
+                    <ion-card-subtitle class="character-name ion-text-center">
+                        <ion-label>{{ cast.character }}</ion-label>
+                    </ion-card-subtitle>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+        <ion-slides [options]="slideOptsReparto" *ngIf="selectedSegment === 'crew'">
+            <ion-slide *ngFor="let crew of credits.crew">
+                <ion-card class="card-actor">
+                    <img *ngIf="!crew.profile_path" src="/assets/img/no-avatar.jpg">
+                    <img *ngIf="crew.profile_path" [src]="crew.profile_path | imagen">
+                    <ion-card-title class="actor-name ion-text-center">
+                        <ion-label>{{ crew.name }}</ion-label>
+                    </ion-card-title>
+                    <ion-card-subtitle class="character-name ion-text-center">
+                        <ion-label>{{ crew.job }}</ion-label>
+                    </ion-card-subtitle>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </ion-col>
+</ion-row>
