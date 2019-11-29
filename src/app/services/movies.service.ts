@@ -82,4 +82,17 @@ export class MoviesService {
       });
     });
   }
+
+  searchPeople(value: string) {
+    const url = URL + `/search/person?query=${value}&api_key=${API_KEY}`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
 }

@@ -17,18 +17,7 @@
                         </ion-label>
                     </ion-item>
                 </ion-list>
-                <ion-list *ngIf="!searchResults.results">
-                    <ion-item *ngFor="let fake of [1,1,1,1]">
-                        <ion-label>
-                            <h2>
-                                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                            </h2>
-                            <p>
-                                <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-                            </p>
-                        </ion-label>
-                    </ion-item>
-                </ion-list>
+                <img src="assets/img/binoculars.png" class="noSearchImg" *ngIf="!searchResults.results" />
             </ion-col>
         </ion-row>
     </ion-grid>

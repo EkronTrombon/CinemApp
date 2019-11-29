@@ -1,8 +1,5 @@
 <ion-header no-border>
     <ion-toolbar color="primary">
-        <!-- <ion-avatar slot="start" class="castAvatar ion-text-center">
-            <img [src]="castDetail.profile_path | imagen" />
-        </ion-avatar> -->
         <ion-title class="ion-text-center">{{ castDetail.name }}</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -11,19 +8,18 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="4">
-                    <img [src]="castDetail.profile_path | imagen" class="castAvatar" />
+                    <img [src]="castDetail.profile_path | imagen" *ngIf="castDetail.profile_path" class="castAvatar" />
+                    <img src="assets/img/noUser.png" *ngIf="!castDetail.profile_path" class="castAvatar" />
                 </ion-col>
                 <ion-col size="8">
                     <ion-item lines="none">
                         <ion-icon color="primary" slot="start" name="calendar"></ion-icon>
                         <ion-label>{{ castDetail.birthday }}</ion-label>
-                        <!-- <ion-note slot="end" color="primary">{{ castDetail.birthday }}</ion-note> -->
                     </ion-item>
                     <ion-item lines="none">
                         <ion-icon color="primary" slot="start" name="locate"></ion-icon>
                         <ion-label *ngIf="castDetail.place_of_birth" class="ion-text-wrap">{{ castDetail.place_of_birth }}</ion-label>
                         <ion-label *ngIf="!castDetail.place_of_birth">Unknown</ion-label>
-                        <!-- <ion-note slot="end" color="primary">{{ castDetail.birthday }}</ion-note> -->
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -38,7 +34,7 @@
 </ion-content>
 <ion-footer no-border>
     <ion-toolbar>
-        <ion-icon class="favoriteIcon" color="primary" slot="start" size="large" name="exit">Favorite</ion-icon>
-        <ion-icon class="favoriteIcon" color="primary" slot="end" size="large" name="heart">Favorite</ion-icon>
+        <ion-icon class="favoriteIcon" color="primary" slot="start" size="large" name="exit" (click)="closeModal()"></ion-icon>
+        <ion-icon class="favoriteIcon" color="primary" slot="end" size="large" name="heart"></ion-icon>
     </ion-toolbar>
 </ion-footer>

@@ -20,6 +20,11 @@ export class AppComponent {
       title: 'Movies',
       url: '/movies-home',
       icon: 'film'
+    },
+    {
+      title: 'People',
+      url: '/people',
+      icon: 'contacts'
     }
   ];
 

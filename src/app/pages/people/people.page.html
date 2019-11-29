@@ -1,0 +1,26 @@
+<app-header title="People"></app-header>
+
+<ion-content fixed>
+    <ion-row>
+        <ion-col size="12">
+            <ion-searchbar placeholder="Search actors/actresses..." (ionChange)="search($event)"></ion-searchbar>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-list *ngIf="searchResult.results">
+                <ion-item *ngFor="let people of searchResult.results" lines="none" (click)="castInfo(people.id)" detail>
+                    <ion-avatar slot="start">
+                        <img [src]="people.profile_path | imagen" *ngIf="people.profile_path" />
+                        <img src="assets/img/noUser.png" *ngIf="!people.profile_path" />
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{ people.name }}</h2>
+                        <p>{{ people.known_for_department }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+            <img src="assets/img/binoculars.png" class="noSearchImg" *ngIf="!searchResult.results" />
+        </ion-col>
+    </ion-row>
+</ion-content>
