@@ -7,6 +7,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { CreditsComponent } from './credits/credits.component';
 import { CastInfoComponent } from './cast-info/cast-info.component';
+import { TvshowDetailComponent } from './tvshow-detail/tvshow-detail.component';
 
 
 
@@ -16,7 +17,8 @@ import { CastInfoComponent } from './cast-info/cast-info.component';
     MovieSlideComponent,
     MovieDetailComponent,
     CreditsComponent,
-    CastInfoComponent
+    CastInfoComponent,
+    TvshowDetailComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { CastInfoComponent } from './cast-info/cast-info.component';
     MovieSlideComponent,
     MovieDetailComponent,
     CreditsComponent,
-    CastInfoComponent
+    CastInfoComponent,
+    TvshowDetailComponent
   ],
   entryComponents: [
     CastInfoComponent

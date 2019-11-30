@@ -1,0 +1,58 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>TV Shows</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="searchBarAvailable = !searchBarAvailable">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row *ngIf="searchBarAvailable">
+        <ion-col size="12">
+            <ion-searchbar placeholder="Search TV shows..." (ionChange)="search($event)"></ion-searchbar>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngIf="tvShowsResult.results">
+        <ion-col size="12">
+            <ion-list>
+                <ion-item *ngFor="let tvShow of tvShowsSearch" lines="none" (click)="openTvShowDetail(tvShow.id)">
+                    <ion-thumbnail slot="end">
+                        <img [src]="tvShow.poster_path | imagen" />
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h2>{{ tvShow.name }}</h2>
+                        <p>{{ tvShow.origin_country[0] }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+            <!-- Infinite scroll -->
+            <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+                <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading data..."></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!tvShowsResult.results">
+        <ion-col size="12">
+            <ion-list>
+                <ion-list-header>
+                    <ion-label color="primary"><strong>Top Rated TV Shows</strong></ion-label>
+                </ion-list-header>
+                <ion-item *ngFor="let tvshow of topRatedTvShows" lines="none" (click)="openTvShowDetail(tvshow.id)">
+                    <ion-thumbnail slot="end">
+                        <img [src]="tvshow.poster_path | imagen">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h2>{{ tvshow.name }}</h2>
+                        <p>Vote average: {{ tvshow.vote_average }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+</ion-content>

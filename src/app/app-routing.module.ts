@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'people',
     loadChildren: () => import('./pages/people/people.module').then( m => m.PeoplePageModule)
+  },
+  {
+    path: 'tv-show',
+    loadChildren: () => import('./pages/tv-show/tv-show.module').then( m => m.TvShowPageModule)
   }
 ];
 

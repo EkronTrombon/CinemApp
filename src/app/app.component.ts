@@ -25,6 +25,11 @@ export class AppComponent {
       title: 'People',
       url: '/people',
       icon: 'contacts'
+    },
+    {
+      title: 'TV Shows',
+      url: '/tv-show',
+      icon: 'tv'
     }
   ];
 

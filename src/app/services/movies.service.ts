@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { reject } from 'q';
+import { TVShowTopRated } from '../interfaces/interfaces';
 
 const URL = environment.url;
 const API_KEY = environment.api_key;
@@ -33,6 +34,19 @@ export class MoviesService {
 
   getCredits(id: number) {
     const url = URL + `/movie/${id}/credits?api_key=${API_KEY}`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  getTvShowCredits(id: number) {
+    const url = URL + `/tv/${id}/credits?api_key=${API_KEY}`;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((resp: any) => {
         if (resp) {
@@ -85,6 +99,45 @@ export class MoviesService {
 
   searchPeople(value: string) {
     const url = URL + `/search/person?query=${value}&api_key=${API_KEY}`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  searchTvShow(value: string, page: number) {
+    const url = URL + `/search/tv?query=${value}&page=${page}&api_key=${API_KEY}`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  getTopRatedTvShows() {
+    const url = URL + `/tv/top_rated?api_key=${API_KEY}`;
+    return new Promise<TVShowTopRated[]>((resolve, reject) => {
+      this.http.get(url).subscribe((resp: any) => {
+        if (resp) {
+          resolve(resp.results);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  getTvShowDetail(id: number) {
+    const url = URL + `/tv/${id}?api_key=${API_KEY}`;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((resp: any) => {
         if (resp) {
