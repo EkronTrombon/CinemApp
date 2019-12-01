@@ -9,6 +9,7 @@ import { MoviesHomePageRoutingModule } from './movies-home-routing.module';
 import { MoviesHomePage } from './movies-home.page';
 import { ComponentsModule } from '../../components/components.module';
 import { MovieDetailComponent } from '../../components/movie-detail/movie-detail.component';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MovieDetailComponent } from '../../components/movie-detail/movie-detail
     FormsModule,
     IonicModule,
     MoviesHomePageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule
   ],
   declarations: [
     MoviesHomePage

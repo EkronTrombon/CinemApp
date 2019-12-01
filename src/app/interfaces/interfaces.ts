@@ -123,7 +123,7 @@ export interface SearchPeopleResult {
   results?: People[];
 }
 
-interface People {
+export interface People {
   popularity?: number;
   known_for_department?: string;
   name?: string;

@@ -1,4 +1,4 @@
-<app-header title="CinemApp"></app-header>
+<app-header title="Movies"></app-header>
 
 <ion-content>
     <ion-grid fixed>
@@ -10,13 +10,20 @@
         <ion-row>
             <ion-col size="12">
                 <ion-list *ngIf="searchResults.results">
-                    <ion-item *ngFor="let movie of searchResults.results" (click)="movieDetail(movie.id)" detail>
+                    <ion-item *ngFor="let movie of moviesSearch" (click)="movieDetail(movie.id)">
+                        <ion-thumbnail slot="end">
+                            <img [src]="movie.poster_path | imagen" />
+                        </ion-thumbnail>
                         <ion-label>
                             <h2>{{ movie.title }}</h2>
                             <p>{{ movie.release_date }}</p>
                         </ion-label>
                     </ion-item>
                 </ion-list>
+                <!-- Infinite scroll -->
+                <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+                    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading data..."></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
                 <img src="assets/img/binoculars.png" class="noSearchImg" *ngIf="!searchResults.results" />
             </ion-col>
         </ion-row>

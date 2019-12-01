@@ -3,6 +3,7 @@ import { MoviesService } from '../../services/movies.service';
 import { SearchPeopleResult } from 'src/app/interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { CastInfoComponent } from 'src/app/components/cast-info/cast-info.component';
+import { People } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-people',
@@ -12,6 +13,9 @@ import { CastInfoComponent } from 'src/app/components/cast-info/cast-info.compon
 export class PeoplePage implements OnInit {
 
   searchResult: SearchPeopleResult = {};
+  peopleSearch: People[] = [];
+  searchValue = '';
+  page = 1;
 
   constructor(private moviesService: MoviesService,
               private modalCtrl: ModalController) { }
@@ -19,13 +23,29 @@ export class PeoplePage implements OnInit {
   ngOnInit() {}
 
   async search(event) {
-    const searchValue = event.detail.value;
-    if (searchValue !== '') {
-      this.searchResult = await this.moviesService.searchPeople(searchValue);
+    this.searchValue = event.detail.value;
+    if (this.searchValue !== '') {
+      this.searchResult = await this.moviesService.searchPeople(this.searchValue, this.page);
+      this.peopleSearch = this.searchResult.results;
     } else {
       this.searchResult = {};
+      this.peopleSearch = [];
+      this.page = 1;
     }
-    console.log(this.searchResult);
+  }
+
+  loadData(event) {
+    this.page++;
+    setTimeout(async () => {
+      if (this.page <= this.searchResult.total_pages) {
+        this.searchResult = await this.moviesService.searchPeople(this.searchValue, this.page);
+        this.peopleSearch.push(...this.searchResult.results);
+      }
+      if (this.peopleSearch.length === this.searchResult.total_results) {
+        event.target.disabled = true;
+      }
+      event.target.complete();
+    }, 1000);
   }
 
   async castInfo(id: number) {

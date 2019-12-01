@@ -84,8 +84,8 @@ export class MoviesService {
     });
   }
 
-  searchMovies(value: string) {
-    const url = URL + `/search/movie?query=${value}&api_key=${API_KEY}&language=en&include_image_language=en`;
+  searchMovies(value: string, page: number) {
+    const url = URL + `/search/movie?query=${value}&page=${page}&api_key=${API_KEY}`;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((resp: any) => {
         if (resp) {
@@ -97,8 +97,8 @@ export class MoviesService {
     });
   }
 
-  searchPeople(value: string) {
-    const url = URL + `/search/person?query=${value}&api_key=${API_KEY}`;
+  searchPeople(value: string, page: number) {
+    const url = URL + `/search/person?query=${value}&page=${page}&api_key=${API_KEY}`;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((resp: any) => {
         if (resp) {
