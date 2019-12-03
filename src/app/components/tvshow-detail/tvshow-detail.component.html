@@ -45,11 +45,22 @@
         </ion-row>
     </ion-grid>
     <ion-grid fixed>
-        <ion-item lines="none">
-            <ion-label>Credits</ion-label>
-            <ion-toggle slot="start" (ionChange)="seeCredits($event)"></ion-toggle>
-        </ion-item>
+        <ion-row>
+            <ion-col size="6">
+                <ion-item lines="none">
+                    <ion-label>Credits</ion-label>
+                    <ion-toggle slot="start" (ionChange)="seeCredits($event)"></ion-toggle>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none">
+                    <ion-label>Videos</ion-label>
+                    <ion-toggle slot="start" (ionChange)="seeVideos($event)"></ion-toggle>
+                </ion-item>
+            </ion-col>
+        </ion-row>
         <app-credits *ngIf="!hiddenCredits" [credits]="credits"></app-credits>
+        <app-videos *ngIf="!hiddenVideos" [movieId]="tvShowId" type="tvShow"></app-videos>
     </ion-grid>
 </ion-content>
 <ion-footer no-border>

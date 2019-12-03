@@ -247,3 +247,19 @@ interface Createdby {
   gender?: number;
   profile_path?: string;
 }
+
+export interface VideoResults {
+  id?: number;
+  results?: Video[];
+}
+
+export interface Video {
+  id?: string;
+  iso_639_1?: string;
+  iso_3166_1?: string;
+  key?: string;
+  name?: string;
+  site?: string;
+  size?: number;
+  type?: string;
+}

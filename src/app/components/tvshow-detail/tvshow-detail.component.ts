@@ -15,6 +15,7 @@ export class TvshowDetailComponent implements OnInit {
   credits: Credits;
   oculto: 150;
   hiddenCredits = true;
+  hiddenVideos = true;
 
   constructor(private moviesService: MoviesService,
               private modalCtrl: ModalController) {}
@@ -22,15 +23,21 @@ export class TvshowDetailComponent implements OnInit {
   async ngOnInit() {
     this.tvShow = await this.moviesService.getTvShowDetail(this.tvShowId);
     this.credits = await this.moviesService.getTvShowCredits(this.tvShowId);
-    console.log(this.credits);
   }
 
   seeCredits(event) {
-    console.log();
     if (event.detail.checked) {
       this.hiddenCredits = false;
     } else {
       this.hiddenCredits = true;
+    }
+  }
+
+  seeVideos(event) {
+    if (event.detail.checked) {
+      this.hiddenVideos = false;
+    } else {
+      this.hiddenVideos = true;
     }
   }
 

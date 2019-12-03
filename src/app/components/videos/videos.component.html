@@ -1,0 +1,9 @@
+<ion-list lines="none">
+    <ion-item *ngFor="let video of videoList" (click)="openVideo(video.id)">
+        <ion-icon slot="start" name="logo-youtube" color="danger"></ion-icon>
+        <ion-label>
+            <h2>{{ video.name }}</h2>
+            <p>{{ video.type }}</p>
+        </ion-label>
+    </ion-item>
+</ion-list>

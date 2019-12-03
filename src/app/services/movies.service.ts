@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { reject } from 'q';
-import { TVShowTopRated } from '../interfaces/interfaces';
+import { TVShowTopRated, VideoResults, Video } from '../interfaces/interfaces';
 
 const URL = environment.url;
 const API_KEY = environment.api_key;
@@ -142,6 +142,32 @@ export class MoviesService {
       this.http.get(url).subscribe((resp: any) => {
         if (resp) {
           resolve(resp);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  getMovieVideos(id: number) {
+    const url = URL + `/movie/${id}/videos?api_key=${API_KEY}`;
+    return new Promise<Video[]>((resolve, reject) => {
+      this.http.get(url).subscribe((resp: VideoResults) => {
+        if (resp) {
+          resolve(resp.results);
+        } else {
+          reject(true);
+        }
+      });
+    });
+  }
+
+  getTvShowVideos(id: number) {
+    const url = URL + `/tv/${id}/videos?api_key=${API_KEY}`;
+    return new Promise<Video[]>((resolve, reject) => {
+      this.http.get(url).subscribe((resp: VideoResults) => {
+        if (resp) {
+          resolve(resp.results);
         } else {
           reject(true);
         }

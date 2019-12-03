@@ -8,6 +8,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { CreditsComponent } from './credits/credits.component';
 import { CastInfoComponent } from './cast-info/cast-info.component';
 import { TvshowDetailComponent } from './tvshow-detail/tvshow-detail.component';
+import { VideosComponent } from './videos/videos.component';
 
 
 
@@ -18,7 +19,8 @@ import { TvshowDetailComponent } from './tvshow-detail/tvshow-detail.component';
     MovieDetailComponent,
     CreditsComponent,
     CastInfoComponent,
-    TvshowDetailComponent
+    TvshowDetailComponent,
+    VideosComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { TvshowDetailComponent } from './tvshow-detail/tvshow-detail.component';
     MovieDetailComponent,
     CreditsComponent,
     CastInfoComponent,
-    TvshowDetailComponent
+    TvshowDetailComponent,
+    VideosComponent
   ],
   entryComponents: [
     CastInfoComponent
