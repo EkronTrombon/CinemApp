@@ -19,7 +19,6 @@ export class CastInfoComponent implements OnInit {
 
   async ngOnInit() {
     this.castDetail = await this.moviesService.getCastDetail(this.castId);
-    console.log(this.castDetail);
   }
 
   closeModal() {

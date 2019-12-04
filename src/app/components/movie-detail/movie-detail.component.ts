@@ -12,8 +12,8 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 export class MovieDetailComponent implements OnInit {
 
   @Input() movieId: number;
-  movie: Movie;
-  credits: Credits;
+  movie: Movie = {};
+  credits: Credits = {};
   oculto = 150;
   hiddenCredits = true;
   hiddenVideos = true;

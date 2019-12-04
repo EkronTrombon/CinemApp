@@ -2,12 +2,12 @@
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" type="overlay">
             <ion-header no-border>
-                <ion-toolbar color="primary">
-                    <ion-title>Menu</ion-title>
+                <ion-toolbar color="secondary">
+                    <ion-title color="primary"><strong>Menu</strong></ion-title>
                 </ion-toolbar>
             </ion-header>
             <ion-content>
-                <ion-list>
+                <ion-list lines="none">
                     <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
                         <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
                             <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
@@ -18,6 +18,11 @@
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>
+            <ion-footer class="ion-text-center" no-border>
+                <ion-toolbar color="secondary">
+                    <ion-title color="primary">App made by <strong>Ekron</strong></ion-title>
+                </ion-toolbar>
+            </ion-footer>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>

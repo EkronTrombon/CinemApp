@@ -13,10 +13,8 @@ export class NowPlayingPage implements OnInit {
 
   constructor(private moviesService: MoviesService) { }
 
-  ngOnInit() {
-    this.moviesService.getNowPlaying().subscribe((resp: any) => {
-      this.nowPlayingList = resp.results;
-    });
+  async ngOnInit() {
+    this.nowPlayingList = await this.moviesService.getNowPlaying();
   }
 
 }
