@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ekron.cinemapp" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ekron.cinemapp" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Cinemapp</name>
     <description>Movies, TV shows, actors... All that you want to know!</description>
     <author email="ekron77@gmail.com" href="http://ionicframework.com/">Xabier Remirez (Ekron)</author>

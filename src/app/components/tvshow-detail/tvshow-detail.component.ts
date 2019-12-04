@@ -13,7 +13,7 @@ export class TvshowDetailComponent implements OnInit {
   @Input() tvShowId: number;
   tvShow: TvShowDetail = {};
   credits: Credits;
-  oculto: 150;
+  oculto = 150;
   hiddenCredits = true;
   hiddenVideos = true;
 
