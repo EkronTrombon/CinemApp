@@ -1,10 +1,12 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" type="overlay">
-            <ion-header no-border>
-                <ion-toolbar color="secondary">
+            <ion-header class="menuStyle" no-border>
+                <img src="assets/img/icon.png" class="menuLogo">
+                <div class="menuTitle"><strong>Menu</strong></div>
+                <!-- <ion-toolbar color="secondary">
                     <ion-title color="primary"><strong>Menu</strong></ion-title>
-                </ion-toolbar>
+                </ion-toolbar> -->
             </ion-header>
             <ion-content>
                 <ion-list lines="none">
@@ -20,7 +22,7 @@
             </ion-content>
             <ion-footer class="ion-text-center" no-border>
                 <ion-toolbar color="secondary">
-                    <ion-title color="primary">App made by <strong>Ekron</strong></ion-title>
+                    <ion-title color="primary" class="ion-text-wrap">App made by <strong>Ekron</strong></ion-title>
                 </ion-toolbar>
             </ion-footer>
         </ion-menu>

@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'now-playing',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: 'pre-home', pathMatch: 'full' },
   {
     path: 'movies-home',
     loadChildren: () => import('./pages/movies-home/movies-home.module').then( m => m.MoviesHomePageModule)
@@ -22,6 +18,10 @@ const routes: Routes = [
   {
     path: 'tv-show',
     loadChildren: () => import('./pages/tv-show/tv-show.module').then( m => m.TvShowPageModule)
+  },
+  {
+    path: 'pre-home',
+    loadChildren: () => import('./pages/pre-home/pre-home.module').then( m => m.PreHomePageModule)
   }
 ];
 

@@ -1,0 +1,34 @@
+ion-slides,
+ion-slide {
+    width: 100%;
+    height: 100%;
+}
+
+ion-slide::after {
+    content: "";
+    background: url('../../../assets/img/oscar.jpg') no-repeat fixed center;
+    opacity: 0.75;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.bgCard {
+    background-color: black;
+}
+
+.homeLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+}
+
+.btnStart {
+    color: var(--ion-color-primary);
+    font-size: 20px;
+    font-weight: bold;
+}
