@@ -3,6 +3,8 @@ import { MoviesService } from '../../services/movies.service';
 import { SearchResult, Movie } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { MovieDetailComponent } from 'src/app/components/movie-detail/movie-detail.component';
+import { myPopInAnimation } from 'src/app/animations/enter';
+import { myPopOutAnimation } from 'src/app/animations/leave';
 
 @Component({
   selector: 'app-movies-home',
@@ -50,7 +52,9 @@ export class MoviesHomePage implements OnInit {
   async movieDetail(id: number) {
     const modal = await this.modalCtrl.create({
       component: MovieDetailComponent,
-      componentProps: { 'movieId': id }
+      componentProps: { 'movieId': id },
+      enterAnimation: myPopInAnimation,
+      leaveAnimation: myPopOutAnimation
     });
     return await modal.present();
   }

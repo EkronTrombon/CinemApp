@@ -5,11 +5,15 @@
     margin-bottom: -60px;
 }
 
+.cartel {
+    border-bottom: 3px solid var(--ion-color-primary);
+}
+
 .titulo {
     width: 100%;
     position: absolute;
     color: white;
-    text-shadow: 4px 4px black;
+    text-shadow: 3px 3px var(--ion-color-primary);
     background-color: red;
     padding: 5px 5px 40px 5px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
@@ -25,7 +29,7 @@
 
 .titulo h1 {
     position: absolute;
-    top: 30px;
-    left: 25px;
+    top: 20px;
+    left: 20px;
     font-size: 30px;
 }

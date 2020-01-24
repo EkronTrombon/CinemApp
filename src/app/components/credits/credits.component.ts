@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Credits } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { CastInfoComponent } from '../cast-info/cast-info.component';
+import { mySlideInAnimation } from '../../animations/enter';
+import { mySlideOutAnimation } from '../../animations/leave';
 
 @Component({
   selector: 'app-credits',
@@ -29,8 +31,10 @@ export class CreditsComponent implements OnInit {
   async castInfo(id: number) {
     const modal = await this.modalCtrl.create({
       component: CastInfoComponent,
-      cssClass: 'cast-modal',
-      componentProps: { 'castId': id }
+      // cssClass: 'cast-modal',
+      componentProps: { 'castId': id },
+      enterAnimation: mySlideInAnimation,
+      leaveAnimation: mySlideOutAnimation
     });
     modal.present();
   }

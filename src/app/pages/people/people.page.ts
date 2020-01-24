@@ -4,6 +4,8 @@ import { SearchPeopleResult } from 'src/app/interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { CastInfoComponent } from 'src/app/components/cast-info/cast-info.component';
 import { People } from '../../interfaces/interfaces';
+import { mySlideInAnimation } from 'src/app/animations/enter';
+import { mySlideOutAnimation } from 'src/app/animations/leave';
 
 @Component({
   selector: 'app-people',
@@ -51,8 +53,10 @@ export class PeoplePage implements OnInit {
   async castInfo(id: number) {
     const modal = await this.modalCtrl.create({
       component: CastInfoComponent,
-      cssClass: 'cast-modal',
-      componentProps: { 'castId': id }
+      // cssClass: 'cast-modal',
+      componentProps: { 'castId': id },
+      enterAnimation: mySlideInAnimation,
+      leaveAnimation: mySlideOutAnimation
     });
     modal.present();
   }

@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TvShowDetail, Credits } from '../../interfaces/interfaces';
+import { TvShowDetail, Credits, Movie } from '../../interfaces/interfaces';
 import { MoviesService } from '../../services/movies.service';
 import { ModalController } from '@ionic/angular';
+import { PosterComponent } from '../poster/poster.component';
+import { myPopInAnimation } from 'src/app/animations/enter';
+import { myPopOutAnimation } from 'src/app/animations/leave';
 
 @Component({
   selector: 'app-tvshow-detail',
@@ -43,6 +46,17 @@ export class TvshowDetailComponent implements OnInit {
 
   closeDetail() {
     this.modalCtrl.dismiss();
+  }
+
+  async openPoster(movie: Movie) {
+    const modal = await this.modalCtrl.create({
+      component: PosterComponent,
+      componentProps: { 'movie': movie },
+      cssClass: 'poster-modal',
+      enterAnimation: myPopInAnimation,
+      leaveAnimation: myPopOutAnimation
+    });
+    return await modal.present();
   }
 
 }

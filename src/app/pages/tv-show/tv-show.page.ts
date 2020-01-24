@@ -3,6 +3,8 @@ import { MoviesService } from '../../services/movies.service';
 import { TVShowTopRated, SearchPeopleResult, SearchTVShowsResult } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { TvshowDetailComponent } from '../../components/tvshow-detail/tvshow-detail.component';
+import { myPopInAnimation } from 'src/app/animations/enter';
+import { myPopOutAnimation } from 'src/app/animations/leave';
 
 @Component({
   selector: 'app-tv-show',
@@ -54,7 +56,9 @@ export class TvShowPage implements OnInit {
   async openTvShowDetail(id: number) {
     const modal = await this.modalCtrl.create({
       component: TvshowDetailComponent,
-      componentProps: { 'tvShowId': id }
+      componentProps: { 'tvShowId': id },
+      enterAnimation: myPopInAnimation,
+      leaveAnimation: myPopOutAnimation
     });
     return await modal.present();
   }

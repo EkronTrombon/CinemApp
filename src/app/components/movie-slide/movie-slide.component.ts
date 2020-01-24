@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
+import { myPopInAnimation } from '../../animations/enter';
+import { myPopOutAnimation } from '../../animations/leave';
 
 @Component({
   selector: 'app-movie-slide',
@@ -174,7 +176,9 @@ export class MovieSlideComponent implements OnInit {
   async openMovieDetail(movieId: number) {
     const modal = await this.modalCtrl.create({
       component: MovieDetailComponent,
-      componentProps: { 'movieId': movieId }
+      componentProps: { 'movieId': movieId },
+      enterAnimation: myPopInAnimation,
+      leaveAnimation: myPopOutAnimation
     });
     return await modal.present();
   }

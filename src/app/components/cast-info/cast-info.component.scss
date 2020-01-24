@@ -1,12 +1,50 @@
+:host {
+    background-color: white;
+    background-image: url(../../../assets/img/castBckgd2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    // opacity: 75%;
+    --offset-top: 200px;
+}
+
 ion-title {
-    text-shadow: 3px 3px white;
+    color: white;
+    text-shadow: 3px 3px var(--ion-color-primary);
+    text-align: center;
     font-size: 25px;
 }
 
-.castAvatar {
-    border-radius: 25%;
+ion-toolbar {
+    --background: transparent;
 }
 
-.favoriteIcon {
-    padding: 10px;
+ion-content {
+    --background: transparent;
+    transform: translate3d(0, 150px, 0);
+    transition: 0.5s;
+}
+
+.no-transform {
+    transform: translate3d(0, 0, 0) !important;
+}
+
+.content-container {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: scroll;
+}
+
+.castAvatar {
+    border: 3px solid var(--ion-color-primary);
+    border-radius: 10px;
+    box-shadow: 3px 3px lightgrey;
 }

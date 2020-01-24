@@ -9,6 +9,7 @@ import { CreditsComponent } from './credits/credits.component';
 import { CastInfoComponent } from './cast-info/cast-info.component';
 import { TvshowDetailComponent } from './tvshow-detail/tvshow-detail.component';
 import { VideosComponent } from './videos/videos.component';
+import { PosterComponent } from './poster/poster.component';
 
 
 
@@ -20,7 +21,8 @@ import { VideosComponent } from './videos/videos.component';
     CreditsComponent,
     CastInfoComponent,
     TvshowDetailComponent,
-    VideosComponent
+    VideosComponent,
+    PosterComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { VideosComponent } from './videos/videos.component';
     VideosComponent
   ],
   entryComponents: [
-    CastInfoComponent
+    CastInfoComponent,
+    PosterComponent
   ]
 })
 export class ComponentsModule { }

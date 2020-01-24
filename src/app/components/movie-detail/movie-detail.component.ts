@@ -3,6 +3,9 @@ import { Movie, Credits, Genre } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { MoviesService } from '../../services/movies.service';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { PosterComponent } from '../poster/poster.component';
+import { myPopInAnimation } from '../../animations/enter';
+import { myPopOutAnimation } from '../../animations/leave';
 
 @Component({
   selector: 'app-movie-detail',
@@ -44,6 +47,17 @@ export class MovieDetailComponent implements OnInit {
 
   closeDetail() {
     this.modalCtrl.dismiss();
+  }
+
+  async openPoster(movie: Movie) {
+    const modal = await this.modalCtrl.create({
+      component: PosterComponent,
+      componentProps: { 'movie': movie },
+      cssClass: 'poster-modal',
+      enterAnimation: myPopInAnimation,
+      leaveAnimation: myPopOutAnimation
+    });
+    return await modal.present();
   }
 
 }
